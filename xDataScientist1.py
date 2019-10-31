@@ -7,36 +7,38 @@ from pyspark import SparkFiles
 sqlContext = SQLContext(sc)
 from pyspark.sql.types import *
 from pyspark.ml import Pipeline
-from pyspark.ml.feature import StringIndexer
+#from pyspark.ml.feature import StringIndexer
 
-from pyspark.context import SparkContext
+#from pyspark.context import SparkContext
 from pyspark.sql.session import SparkSession
 sc = SparkContext.getOrCreate()
 spark = SparkSession(sc)
-from pyspark.ml.linalg import DenseVector
+#from pyspark.ml.linalg import DenseVector
 from pyspark.ml.feature import StringIndexer,OneHotEncoder, VectorAssembler,OneHotEncoderEstimator
 from pyspark.sql.functions import col, countDistinct
 import pyspark.sql.functions as f
+
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx STARTING ''')
 url = "https://raw.githubusercontent.com/guru99-edu/R-Programming/master/adult_data.csv"
 sc.addFile(url)
-##++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-url = "https://raw.githubusercontent.com/guru99-edu/R-Programming/master/adult_data.csv"
-from pyspark import SparkFiles
+#from pyspark import SparkFiles
 sc.addFile(url)
 Dataf = sqlContext.read.csv(SparkFiles.get("adult_data.csv"), header=True, inferSchema= True)
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx3''')
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SCHEMA xxxxxxxxxxx3''')
 Dataf.printSchema()
 print((Dataf.count(), len(Dataf.columns)))
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxCOUNTxxxxxxxxxxx3''')
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx COUNT xxxxxxxxxxx3''')
 Dataf.select(*[f.collect_set(c).alias(c) for c in Dataf.columns]).show()
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxDSTINCTxxxxxxxxx4''')
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx DSTINCT xxxxxxxxx4''')
 Dataf.describe().show()
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxEXPLAINxxxxxxxxx5''')
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx EXPLAIN xxxxxxxxx5''')
 Dataf.crosstab('age', 'income').sort("age_income").show()
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxSALARYxxxxxxxxxxx6''')
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SALARY xxxxxxxxxxx6''')
 Dataf.select('age','workclass','education','educational-num','marital-status','race','gender','native-country','income').show()
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxFREEpREDICTIONxxxxxxxxxxx7''')
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQUESTION-NOxxxxxxxxxxxx8''')
+
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx FREEPREDICTION xxxxxxxxx7''')
+
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx QUESTION-NO xxxxxxxxxx8''')
 indexer = StringIndexer(inputCol="workclass", outputCol="workclass_index").fit(Dataf)
 indexed = indexer.transform(Dataf)
 encoder = OneHotEncoder(dropLast=False, inputCol="workclass_index", outputCol="workclass_vec")
@@ -60,12 +62,13 @@ pipelineModel = pipeline.fit(Dataf)
 model = pipelineModel.transform(Dataf)
 model.take(5)
 model.show()
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxNEWFeaturexxxxxxxxxxxxxxxxxxxxxxx 9''')
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx NEW-FEATURE xxxxxxxxxxxxxxx 9''')
 # Import `LinearRegression`
 from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.linalg import DenseVector
 
-data2 = model.rdd.map(lambda x: (x["newlabel"], DenseVector(x["features"])))
-df_train = sqlContext.createDataFrame(data2, ["label", "features"])
+df_train1 = model.rdd.map(lambda x: (x["newlabel"], DenseVector(x["features"])))
+df_train = sqlContext.createDataFrame(df_train1, ["label", "features"])
 train_data, test_data = df_train.randomSplit([.8,.2],seed=1234)
 train_data.groupby('label').agg({'label': 'count'}).show()
 test_data.groupby('label').agg({'label': 'count'}).show()
@@ -80,15 +83,17 @@ predictions = linearModel.transform(test_data)
 predictions.printSchema()
 selected = predictions.select("label", "prediction", "probability")
 selected.show(20)
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxPREDICTIONSxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 10''')
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx PREDICTIONS xxxxxxxxxxxxx 10''')
 ### Use ROC 
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
 # Evaluate model
 evaluator = BinaryClassificationEvaluator(rawPredictionCol="rawPrediction")
+print("Percentage of GUESS/Error :")
 print(evaluator.evaluate(predictions))
-print("RESULTS FROM THE TESTING :"+ evaluator.getMetricName())
-print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxROC METRICxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx11''')
-##++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+print(evaluator.getMetricName())
+print("Type of test Conducted :"+evaluator.getMetricName())
+print('''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ROC METRIX xxxxxxxxxxxxx 11''')
+
 
 
 
