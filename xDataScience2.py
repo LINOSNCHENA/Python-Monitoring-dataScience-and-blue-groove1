@@ -13,7 +13,8 @@ from pyspark.sql.types import *
 from pyspark.ml import Pipeline
 print('xxxxxxxxxxxxxxxxx -PIPELINE- xxxxxxxxxxxxxxx #2')
 
-from pyspark.ml.feature import StringIndexer,OneHotEncoder, VectorAssembler,OneHotEncoderEstimator
+from pyspark.ml.feature import StringIndexer,OneHotEncoder, VectorAssembler, OneHotEncoder
+
 from pyspark.sql.functions import col, countDistinct
 import pyspark.sql.functions as f
 from pyspark.sql.window import Window
@@ -29,17 +30,13 @@ sc.addFile(url)
 Dataf = sqlContext.read.csv(SparkFiles.get("adult_data.csv"), header=True, inferSchema= True)
 
 print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx TRANSFORM+BOTH xxxxxx 8')
-indexer = StringIndexer(inputCol="workclass", outputCol="workclass_monze").fit(Dataf)
-indexed = indexer.transform(Dataf)
-encoder = OneHotEncoder(dropLast=False, inputCol="workclass_monze", outputCol="workclass_pemba")
-encoded = encoder.transform(indexed)
-#+++++++++++++++++++++++++++++++++++++++++++++++++++
 number_FEATURES = ['age', 'x', 'fnlwgt', 'hours-per-week']
 letter_FEATURES = ['workclass', 'education', 'marital-status', 'native-country']
 stages = [] 
 for categoricalCol in letter_FEATURES:
     stringIndexer = StringIndexer(inputCol=categoricalCol, outputCol=categoricalCol + "Choma")
-    encoder = OneHotEncoderEstimator(inputCols=[stringIndexer.getOutputCol()],outputCols=[categoricalCol + "Vasteras"])
+    #encoder = OneHotEncoderEstimator(inputCols=[stringIndexer.getOutputCol()],outputCols=[categoricalCol + "Vasteras"])
+    encoder = OneHotEncoder(inputCols=[stringIndexer.getOutputCol()],outputCols=[categoricalCol + "Vasteras"])
     stages += [stringIndexer, encoder]
 # Convert income into lusaka using the StringIndexer
 stringLusaked =  StringIndexer(inputCol="income", outputCol="lusaka")
@@ -78,7 +75,7 @@ print(evaluator.evaluate(predictions))
 print(evaluator.getMetricName())
 print("TYPE OF TESTS CONDUCTED :"+evaluator.getMetricName())
 print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ROC METRIX xxxxxxxxxxxxx 11')
-
+print("")
 print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx DATA SCIENCE TWO #2 SUCCESSFUL xxxxxxxxxx DONE!')
 
 
