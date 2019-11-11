@@ -1,4 +1,4 @@
-# PySpark-project-for-Data-Scientist
+# PySpark-project-for-Data-predictions
 
 Example to demonstrate explolation of Spark. It explores three principles.
 
