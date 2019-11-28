@@ -15,3 +15,15 @@
 
  ### Command
  spark-submit C:\PySpark\spark-3.0.0-preview-bin-hadoop3.2\bin\xDataScience1.py
+
+ ## PART III: Experimental Languages
+
+ 1. Pricing in Groovy
+ 2. Currency Coventer in JS
+ 3. Search Engine connector for Google-API
+
+ ## PART IV: Model Prediction in MATLAB (Prediction Engineer)
+
+ 1. Carima Model
+ 2. Matrxi Model
+ 3. Diaphontine Equations
