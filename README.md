@@ -19,8 +19,8 @@
  ## PART III: Experimental Languages
 
  1. Pricing in Groovy
- 2. Currency Coventer in JS
- 3. Search Engine connector for Google-API
+ 2. Search Engine connector for Google-API
+ 3. Currency Conventer in vanilla JavaScript 
 
  ## PART IV: Model Prediction in MATLAB (Prediction Engineer)
 
