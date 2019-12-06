@@ -13,9 +13,6 @@
 2. Create of DataFrame from other dataFrames
 3. Expoiting SQL on the created dataframes
 
- ### Command
- spark-submit C:\PySpark\spark-3.0.0-preview-bin-hadoop3.2\bin\xDataScience1.py
-
  ## PART III: Experimental Languages
 
  1. Pricing in Groovy
@@ -27,3 +24,9 @@
  1. Carima Model
  2. Matrxi Model
  3. Diaphontine Equations
+
+  ### Commands
+  
+ spark-submit C:\PySpark\spark-3.0.0-preview-bin-hadoop3.2\bin\xDataScience1.py
+ make sure not to use run
+ make sure to use terminal py.
