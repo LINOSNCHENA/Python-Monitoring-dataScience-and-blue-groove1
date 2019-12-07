@@ -27,6 +27,7 @@
 
   ### Commands
   
- spark-submit C:\PySpark\spark-3.0.0-preview-bin-hadoop3.2\bin\xDataScience1.py
- make sure not to use run
- make sure to use terminal py.
+ 1. spark-submit C:\PySpark\spark-3.0.0-preview-bin-hadoop3.2\bin\xDataScience1.py
+ 2. make sure not to use run
+ 3. make sure to use terminal py.
+ 4. Always use Python terminal

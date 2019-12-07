@@ -12,7 +12,7 @@ def sigmoid(x):
 def sigmoidxd(x):
     return sigmoid(x)*(1-sigmoid(x))
 print('======================================== AAN TRAINING BODY ==========================')
-for epoch in range(3):
+for epoch in range(13):
     visitorX = feature_set
     # feedforward step  1: Make a wild Guese
     XW = np.dot(feature_set, weights) + bias
@@ -38,5 +38,5 @@ def predictx(result):
   else                 :   disease_predicted = 100, print("r is Excellent xx")
   return disease_predicted
 print('0 = health, 1 = pending, 2 = sick')
-print("Monitoring unit", result,'-|||-   Health level Interpretation', (predictx(result)))
+print("Monitoring unit :", result,'   -|||-   Max-Health Interpretation :', (predictx(result)))
 print("=================================================================================")

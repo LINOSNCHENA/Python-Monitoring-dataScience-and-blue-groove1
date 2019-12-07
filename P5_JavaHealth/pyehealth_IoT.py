@@ -1,6 +1,4 @@
 import pandas as pd
-#eHouse="file:///Users/linos/Downloads/Stipend2/JavaPython/src/main/java/annit/eHouse_data.csv"
-#eHouse1="file:///Users/linos/Downloads/Stipend2/JavaPython/src/main/java/annit/eHouse_data1.csv"
 eHouse="file:///Users/linos/Downloads/PyData/eHouse_datax.csv"
 df = pd.read_csv(eHouse)
 x = df.iloc[:,:-1].astype(float).values
@@ -16,11 +14,9 @@ rd = rd.fit(x, y)
 # selected features with a lower dimension
 x_selected = rd.transform(x)
 
-
 # split the data into training and test sets
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test, = train_test_split(x_selected, y, test_size=0.20, random_state=84)
-#a_train, a_test, b_train, b_test, = train_test_split(x1_selected, y1, test_size=0.20, random_state=84)
 
 # pipeline: Scaler-->Logistic Regression 
 from sklearn.pipeline import Pipeline
