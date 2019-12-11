@@ -36,9 +36,11 @@ df.iloc[4:10]
 
 #Using SelectKBest to get the top features!
 from sklearn.feature_selection import SelectKBest, chi2
-X = df.loc[:,df.columns!='RainTomorrow']
-y = df[['RainTomorrow']]
+X = df.loc[:,df.columns!='smoking']
+y = df[['smoking']]
 selector = SelectKBest(chi2, k=3)
 selector.fit(X, y)
 X_new = selector.transform(X)
 print(X.columns[selector.get_support(indices=True)])
+
+print ("============================================= DATA ENDING =========================")
