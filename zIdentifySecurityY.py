@@ -38,7 +38,7 @@ validation_steps = 20)#2000)
 # Part 3 - Making new predictions
 import numpy as np
 from keras.preprocessing import image
-test_image = image.load_img('datasetX/prediction_result/mdh_or_unza.jpg', target_size = (64, 64))
+test_image = image.load_img('datasetX/prediction_result/mdh.jpg', target_size = (64, 64))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis = 0)
 result = classifier.predict(test_image)
