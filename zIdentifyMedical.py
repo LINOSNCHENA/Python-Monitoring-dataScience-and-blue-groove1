@@ -24,7 +24,7 @@ muntu.compile(loss='binary_crossentropy', optimizer='adam', metrics=['mse','acc'
 muntu.fit(X, y,validation_split=0.33, epochs=150, batch_size=len(X), verbose=2)
 # evaluate the keras muntu
 accuracy = muntu.evaluate(X, y)
-print("Loss-Fever, MSE-FEVER, Accuracy-FEVER",accuracy)
+print("Loss, MSE, Accuracy",accuracy)
 print("================= RESULT OF PREDICTION FOR TWO SUBJECT PERSONS  ========================")
 print("1 means Diseased, 0 means Health")
 # make class four predictions with the muntu
@@ -35,8 +35,6 @@ print("================= RESULT OF PREDICTION FOR TWO SUBJECT PERSONS  =========
 
 # plot metrics from trained model
 history = muntu.fit(X, y,validation_split=0.33, epochs=150, batch_size=len(X), verbose=2)
-print("Loss-Fever, MSE-FEVER, Accuracy-FEVER",accuracy)
-# list all data in history
 print(history.history.keys())
 # summarize history for accuracy
 pyplot.plot(history.history['acc'])
@@ -65,5 +63,7 @@ pyplot.tight_layout()
 pyplot.legend(['trained', 'subject'], loc='best')
 pyplot.show()
 
-print("Loss-FEVER, MSE-FEVER, Accuracy-FEVER :::",accuracy)
+
+print("Loss, MSE, Accuracy",accuracy)
 print(muntu.summary())
+print("Loss, MSE, Accuracy",accuracy)
