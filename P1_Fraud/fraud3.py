@@ -1,5 +1,5 @@
 import pandas as pd
-eHouse="file:///Users/linos/Downloads/PyData/eHouse_datax.csv"
+eHouse="file:///Users/linos/Downloads/PyData/reportx.csv"
 df = pd.read_csv(eHouse)
 x = df.iloc[:,:-1].astype(float).values
 y = df.iloc[:,-1].values

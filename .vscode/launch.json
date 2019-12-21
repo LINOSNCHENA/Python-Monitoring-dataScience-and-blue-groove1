@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - jvpyMonze",
+            "request": "launch",
+            "mainClass": "jvpyMonze",
+            "projectName": "zam3_8db3012a"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - jvpyZlinFuzzy",
             "request": "launch",
             "mainClass": "jvpyZlinFuzzy",

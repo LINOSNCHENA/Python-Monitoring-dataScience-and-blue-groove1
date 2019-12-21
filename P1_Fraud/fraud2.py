@@ -1,14 +1,10 @@
-# For linear algebra
 import numpy as np
-# For data processing
 import pandas as pd
-eHouse="file:///Users/linos/Downloads/PyData/eHouse_datax.csv"
-#Load the data set
+eHouse="file:///Users/linos/Downloads/PyData/reportx.csv"
 df = pd.read_csv(eHouse)
 
 #Display the shape of the data set
 print('Size of weather data frame is :',df.shape)
-#Display data
 print(df[0:5])
 print ("============================================== DATA LOADING ===========================")
 print(df.count().sort_values())
@@ -42,5 +38,4 @@ selector = SelectKBest(chi2, k=3)
 selector.fit(X, y)
 X_new = selector.transform(X)
 print(X.columns[selector.get_support(indices=True)])
-
 print ("============================================= DATA ENDING =========================")
