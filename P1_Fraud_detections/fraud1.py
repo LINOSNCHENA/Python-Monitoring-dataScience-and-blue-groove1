@@ -1,5 +1,4 @@
-# NEURAL NETWORK TO DETEECK A THIEVES AT THE AUTOMATED HOUSE (PART I)
-
+# ARTIFICIAL NEURAL NETWORK OF DETECTING FRAUD (PART I)
 import numpy as np
 feature_set = np.array([[0,1,1],[1,0,1],[1,0,0],[1,1,0],[1,0,0]])
 labels = np.array([[1,0,0,1,1]])
@@ -7,7 +6,8 @@ labels = labels.reshape(5,1)
 np.random.seed(84)
 weights = np.random.rand(3,1)
 bias = np.random.rand(1)
-learningRate  = 0.1                                   # One
+
+learningRate  = 0.1               # One
 def sigmoid(x):
     return 1/(1+np.exp(-x))
 def sigmoidxd(x):
@@ -44,5 +44,4 @@ def predictx(result):
     intruder_predicted = 3
   return intruder_predicted
 print((predictx(result)))
-
 print('================================== ANN x2 END ========================')
