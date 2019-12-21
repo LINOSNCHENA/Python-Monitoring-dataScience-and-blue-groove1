@@ -1,0 +1,31 @@
+<html>  <head>  <script type="text/javascript">  
+ function msg1(){ 
+emp={id: 8402, name:"   LINOS NCHENA #1   ",salary:48008}; document.write(emp.id+" "+emp.name+" "+emp.salary);console.log("functionONE"); 
+function inside3(){var emp=new Object();  emp.id=101; emp.name="NCHENA LINOS #2";  
+emp.salary=58000;  document.write(emp.id+" "+emp.name+" "+emp.salary); console.log("functionINSIDE3");}; inside3()} 
+function msg2(){ var x = 2019;  var y = 1984;  var z=x-y; document.write("ID no. is :");document.write(z); console.log("functionTWO");} 
+function msg3(){  //gloabal variable  
+var ndalama = 37.87695;  function Choma(){ document.writeln(ndalama);  }; function Monze(){ document.writeln(ndalama);  } //Choma(); 
+Monze(); console.log("functionTHREE"); } //calling JavaScript function 
+function msg4(){ var gelo = document.createElement("img"); gelo.setAttribute("src", "ZED.JPG");
+gelo.setAttribute("height", "200");		gelo.setAttribute("width", "256");	gelo.setAttribute("alt", "Include a picture, and name it ZED.JPG");
+document.getElementById("placehere").appendChild(gelo);console.log("functionFOUR");}
+</script>  <div id="placehere">
+<style>body {color: red; background-color: green}</style></head>  
+
+<body>        
+<form name="RegForm" color="red" action="/submit.php" onsubmit="return msg1()" method="post">  
+<h1 style="text-align: center"> REGISTRATION FORM : Linos Nchena</h1> 
+<input type="textbox" value="Search ... Pemba" size = 65 align = "center" /><br>   
+<input type="button"  value ="Seach" button-align = "center" onclick="msg4()"/>
+    <p>Name          : <input type="text" size=65 name="Name"></p>        
+    <p>E-mail Address: <input type="text" size=65 name="EMail"></p> 
+    <p>Comments      :  <textarea cols="55" name="Coment">  </textarea></p> 
+    <p><input type="submit" value="Nchena Send"  name="Submit">
+	   <input type="reset"  value="NCHENA Reset" name="Reset"></p>   
+</form></body> 	
+ <iframe src = "http://www.lusakatimes.com/" style="width:300px;  overflow:hidden; height:200px; margin:20;">
+         Sorry your browser does not support inline frames.     </iframe>	  
+<iframe src = "http://www.utb.cz/"           style="width:300px;  overflow:hidden; height:200px; margin:20;">
+         Sorry your browser does not support inline frames.      </iframe>	  
+</html>  

@@ -1,0 +1,146 @@
+
+<html><head><meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<title> LINOS NCHENA Banking App 2019</title>
+<script>
+var request = new XMLHttpRequest();   
+request.open("GET",'https://api.exchangeratesapi.io/latest', true);
+request.onload = function () {   var data = JSON.parse(this.response);      //    EUR is first Printed JPY is Last PRINTED                 
+document.getElementById("X1").innerHTML = data.rates.EUR;                            banksEUR = (document.getElementById("X1").innerHTML);         
+buyEUR = banksEUR-(banksEUR*0.05);                                                   saleEUR = banksEUR+(banksEUR*0.05);
+EURb =(parseFloat(buyEUR).toFixed(2)); console.log("EURBuy1"); console.log(EURb);     document.getElementById("EUR1").innerHTML = EURb; 
+EURs=(parseFloat(saleEUR).toFixed(2)); console.log("EURSale1"); console.log(EURs);	 document.getElementById("EUR2").innerHTML = EURs;
+
+document.getElementById("X2").innerHTML = data.rates.USD;                            banksUSD = (document.getElementById("X2").innerHTML);          
+buyUSD = banksUSD-(banksUSD*0.05);                                                   saleUSD = banksUSD+(banksUSD*0.05);
+USDb =(parseFloat(buyUSD).toFixed(2));  console.log("USDBuy2"); console.log(USDb);   document.getElementById("USD1").innerHTML = USDb; 
+USDs=(parseFloat(saleUSD).toFixed(2));  console.log("USDSale2"); console.log(USDs);	 document.getElementById("USD2").innerHTML = USDs;
+
+document.getElementById("X3").innerHTML = data.rates.GBP;                            banksGBP = (document.getElementById("X3").innerHTML);          
+buyGBP = banksGBP-(banksGBP*0.05);                                                   saleGBP = banksGBP+(banksGBP*0.05);
+GBPb =(parseFloat(buyGBP).toFixed(2));  console.log("GBPBuy3"); console.log(GBPb);    document.getElementById("GBP1").innerHTML = GBPb; 
+GBPs=(parseFloat(saleGBP).toFixed(2));  console.log("GBPSale"); console.log(GBPs);	 document.getElementById("GBP2").innerHTML = GBPs;
+
+document.getElementById("X4").innerHTML = data.rates.AUD;                            banksAUD = (document.getElementById("X4").innerHTML);          
+buyAUD = banksAUD-(banksAUD*0.05);                                                   saleAUD = banksAUD+(banksAUD*0.05);
+AUDb =(parseFloat(buyAUD).toFixed(2));  console.log("AUDBuy4"); console.log(AUDb);    document.getElementById("AUD1").innerHTML = AUDb; 
+AUDs=(parseFloat(saleAUD).toFixed(2));  console.log("AUDSale"); console.log(AUDs);	 document.getElementById("AUD2").innerHTML = AUDs;
+
+document.getElementById("X5").innerHTML = data.rates.CAD;                            banksCAD = (document.getElementById("X5").innerHTML);          
+buyCAD = banksCAD-(banksCAD*0.05);                                                   saleCAD = banksCAD+(banksCAD*0.05);
+CADb =(parseFloat(buyCAD).toFixed(2));  console.log("CADBuy5"); console.log(CADb);    document.getElementById("CAD1").innerHTML = CADb; 
+CADs=(parseFloat(saleCAD).toFixed(2));  console.log("CADSale"); console.log(CADs);	 document.getElementById("CAD2").innerHTML = CADs;
+
+document.getElementById("X6").innerHTML = data.rates.JPY;                            banksJPY = (document.getElementById("X6").innerHTML);          
+buyJPY = banksJPY-(banksJPY*0.05);                                                   saleJPY = banksJPY+(banksJPY*0.05);
+JPYb =(parseFloat(buyJPY).toFixed(2));  console.log("JPYBuy6"); console.log(JPYb);    document.getElementById("JPY1").innerHTML = JPYb; 
+JPYs=(parseFloat(saleJPY).toFixed(2));  console.log("JPYSale"); console.log(JPYs);	 document.getElementById("JPY2").innerHTML = JPYs;
+document.getElementById("JPY2").innerHTML = JPYs;document.getElementById("JPY2").innerHTML = JPYs;
+};request.send();   
+</script>
+<style>
+div    { background-color: silver;  width:22vw; height:20w;  position:absolute; left:5vw;  top:2vw;  padding:2vw; border-color: red; } 
+select { background-color:gray;  width:12vw; height:2vw;  border-color: red; } 
+input  { background-color: gray;   width:10vw; height:2vw; color:black; border-color: red; }
+table  {  background-color: gray;  width:22vw; border-spacing: 0; color:black; border-color: red;  position:absolute; left:45vw;  toxp:5vw; border-color: red;}
+th, td {  text-align: left;  padding: 1vw;}
+tr:nth-child(even) {  background-color: #f2f2f2; background-color: orange;}
+</style>
+<script> function ReplaysMe() {location.reload(true);}</script>
+
+
+
+<script type="text/javascript">
+	     var CashParent; 
+        window.onload = function () { CashParent = document.getElementById("firsTable");  }
+function newBase(){
+var queryRateSale = document.getElementById("cSign") 
+var queryRateBuy =document.getElementById("cSign")
+if(queryRateSale = = EUR) ( queryRateBuy= document.getElementById("EUR1").innerHTML) else if
+if(queryRateSale = = EUR) ( queryRateBuy= document.getElementById("EUR2").innerHTML) else if
+if(queryRateSale = = EUR) ( queryRateBuy= document.getElementById("USD1").innerHTML) else if
+if(queryRateSale = = EUR) ( queryRateBuy= document.getElementById("USD2").innerHTML) else if
+if(queryRateSale = = EUR)) ( queryRateBuy= document.getElementById("GBP1").innerHTML) else 
+if(queryRateSale = = EUR)) ( queryRateBuy= document.getElementById("GB2").innerHTML) ;
+
+var newUSDrate1=queryRateBuy/USDb; 	var	newGBPrate1=queryRateBuy/GBPb;	var	newAUDrate1=queryRateBuy/AUDb;
+var newCADrate1=queryRateBuy/CADb; 	var	newJPYrate1=queryRateBuy/JPYb;	var	newEURrate1=queryRateBuy/EURb; console.log(newUSDb);
+var newUSDrate2=queryRateSale/USDb; var	newGBPrate2=queryRateSale/GBPb;	var	newAUDrate2=queryRateSale/AUDb;
+var newCADrate2=queryRateSale/CADb; var	newJPYrate2=queryRateSale/JPYb;	var	newEURrate2=queryRateSale/EURb; console.log(newUSDs);
+console.log(newCADrate2);}
+</script>
+
+
+<script type="text/javascript">
+	     var CashParent, sort1 = 1,sort2 = 1, sort3 = 1;
+        window.onload = function () { CashParent = document.getElementById("firsTable");  }
+        function sortParent(tbody, col, sortX) {		
+   var rows = tbody.rows, rlen = rows.length,   arr = new Array(),  i, j, cells, clen;   //
+   //  fill this array with values from the table. Function is the key+ everything esle is a dummy
+    for (i = 0; i < rlen; i++) { cells = rows[i].cells;    clen = cells.length;           arr[i] = new Array();
+                for (j = 0; j < clen; j++) { arr[i][j] = cells[j].innerHTML; }
+            }              //  Select the point to go down sorting from and the alphabetical/Numeric order option
+            arr.sort(function (a, b) {  return (a[col] == b[col]) ? 0 : ((a[col] > b[col]) ? sortX : -1 * sortX);
+            });                // Execute the echange of placed required in a loop method
+            for (i = 0; i < rlen; i++) { rows[i].innerHTML = "<td>" + arr[i].join("</td><td>") + "</td>";    }
+        }    // print your results
+ </script>
+	
+</head><body> <!-- SORTING DOUBLE SORTING ID-->
+<table><thead> <tr><th onclick="sortParent(firstTable, 0, sort1);   sort1 *= -1; sort2 = 1; sort3 = 1;">Currency Sort</th>
+                   <th onActiveX="sortParent(firstTable, 1, sort2);	sort2 *= -1; sort3 = 1; sort1 = 1;">Buying Rate  </th>
+                   <th onActiveX="sortParent(firstTable, 2, sort3); 	sort3 *= -1; sort1 = 1; sort2 = 1;">Selling Rate</th></tr></thead>
+<tbody id="firstTable">
+   		<tr><td>EUR</td>    <td><p id="EUR1"></p> </td><th><p id="EUR2"></p></th> </tr>
+		<tr><td>USD</td>    <td><p id="USD1"></p> </td><th><p id="USD2"></p></th> </tr>
+		<tr><td>GBP</td>    <td><p id="GBP1"></p> </td><th><p id="GBP2"></p></th> </tr>
+		<tr><td>AUD</td>    <td><p id="AUD1"></p> </td><th><p id="AUD2"></p></th> </tr>
+		<tr><td>CAD</td>    <td><p id="CAD1"></p> </td><th><p id="CAD2"></p></th> </tr>
+		<tr><td>JPY</td>    <td><p id="JPY1"></p> </td><th><p id="JPY2"></p></th> </tr>
+</tbody></table>
+	
+<div>	
+<form><p><label>Base:</label>  <select   id='cSign'> 
+ <option value = "1">USD</option>
+ <option value = "2">GBP</option>
+ <option value = "3">AUD</option>
+  <option value = "4">CAD</option>	
+<option value = "5">CAD</option>
+<option value = "6">JPY</option>name='secondList'></select></p>	  		   
+	  <p><label>Date:</label>  <select   id='secondList'  name='secondList'></select></p> 
+	    <input  onclick="ReplaysMe()"     type="button"    value="Refreash"   style="width:20vw; height:5vw">	
+	   <input  onclick = "newBase()"       type="button"    value="Display New Base"   style="width:20vw; height:5vw">	
+	   
+</form  style="background-color: pink;">
+        <input type="hidden" value="EUR_Dollar"    onchange="displayCash()" ><p id="X1">  </p>	<!-- FAKE RATE: NEVER USED1 -->
+		<input type="hidden"   value="EUR_Buying"    onchange="displayCash()" ><p id="EUR1"></p>
+		<input type="hidden"   value="EUR_Selling"   onchange="displayCash()" ><p id="EUR2"></p>
+		<input type="hidden" value="USD_Dollars"   onchange="displayCash()" ><p id="X2">  </p>  <!-- FAKE RATE: NEVER USED2 -->
+		<input type="hidden" 	 value="USD_Buying"    onchange="displayCash()" ><p id="USD1"></p>
+		<input type="hidden"   value="USD_Selling"   onchange="displayCash()" ><p id="USD2"></p>	
+        <input type="hidden" value="USD_Dollars"   onchange="displayCash()" ><p id="X3">  </p>  <!-- FAKE RATE: NEVER USED3 -->
+		<input type="hidden" 	 value="USD_Buying"    onchange="displayCash()" ><p id="USD1"></p>
+		<input type="hidden"   value="USD_Selling"   onchange="displayCash()" ><p id="USD2"></p>		
+		<input type="hidden" value="AUD_Dollars"   onchange="displayCash()" ><p id="X4">  </p>	<!-- FAKE RATE: NEVER USED4 -->
+		<input type="hidden"   value="AUD_Buying"    onchange="displayCash()" ><p id="AUD1"></p>
+		<input type="hidden"   value="AUD_Selling"   onchange="displayCash()" ><p id="AUD2"></p>
+		<input type="hidden" value="CAD_Dollars"   onchange="displayCash()" ><p id="X5">  </p>	<!-- FAKE RATE: NEVER USED5 -->
+		<input type="hidden"   value="CAD_Buying"    onchange="displayCash()" ><p id="CAD1"></p>
+		<input type="hidden"   value="CAD_Selling"   onchange="displayCash()" ><p id="CAD2"></p>
+		<input type="hidden" value="JPY_YENNIN"    onchange="displayCash()" ><p id="X6">  </p>	<!-- FAKE RATE: NEVER USED6 -->
+		<input type="hidden"   value="JPY_Buying"    onchange="displayCash()" ><p id="JPY1"></p>
+		<input type="hidden"   value="JPY_Selling"   onchange="displayCash()" ><p id="JPY2"></p>	
+</div></body>
+
+
+<script>
+ window.onload = function () { CashChild = document.getElementById("firstTable");  }
+ window.onload = function () { CashChild = document.getElementById("secondTable");  }
+function newBase2(){	     
+document.getElementById("firstTable").innerHTML=""                                              // ******* DELETED TABLE 2
+var p1 = document.getElementById("secondTable");											    // ****PUT TABLE 1 INTO TABLE 2;
+var p2 = p1.cloneNode(true);
+document.getElementById("firstTable").appendChild(p2);                                          // *****FAILDE TO WORK; WHY?
+console.log(document.getElementById("firstTable").innerHTML); console.log("SuccElement");      
+</script>
+</html>
