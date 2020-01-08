@@ -1,6 +1,6 @@
 # PREDICTION AND RECOGNITION ALGORITHMS
 
-## PART I: Fraud Detection 
+## PART I: Fraud and errors detection 
 1. ATs for detecting undesired pattern changes in general uses
 2. Memory loss ATs to correctly labelling of family members correctly by facial recognition
 3. ATs to Identify the present of fever in family members for smart house
