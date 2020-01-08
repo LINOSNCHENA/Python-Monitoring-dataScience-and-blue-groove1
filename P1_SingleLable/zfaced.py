@@ -35,7 +35,7 @@ validation_data = test_set, validation_steps = 20)
 # Part 3 - MAKING NEW PREDICTIONS
 import numpy as np
 from keras.preprocessing import image
-test_image = image.load_img('data/prediction_result/unza1.jpg', target_size = (64, 64))
+test_image = image.load_img('data/prediction_result/bey1.jpg', target_size = (64, 64))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis = 0)
 result = police.predict(test_image)

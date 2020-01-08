@@ -6,5 +6,5 @@ pip install Keras, scikit-learn, matpolotlib, imutils, and OpenCV
 pip install tensorflow
 
 
-python train.py --dataset dataset --model fashion.model --labelbin mlb.pickle
-python classify.py --model fashion.model --labelbin mlb.pickle --image visitors/visitor_1.jpg
+python train.py --dataset dataset --model seniors.model --labelbin mlb.pickle
+python classify.py --model seniors.model --labelbin mlb.pickle --image visitors/visitor_1.jpg
