@@ -25,9 +25,9 @@ from keras.preprocessing.image import ImageDataGenerator
 train_datagen = ImageDataGenerator(rescale = 1./255,
 shear_range = 0.2,zoom_range = 0.2,horizontal_flip = True)
 test_datagen = ImageDataGenerator(rescale = 1./255)
-training_set = train_datagen.flow_from_directory('datasetX/training_set',
+training_set = train_datagen.flow_from_directory('data/training_set',
 target_size = (64, 64),batch_size = 18, class_mode = 'binary')
-test_set = test_datagen.flow_from_directory('datasetX/test_set',
+test_set = test_datagen.flow_from_directory('data/test_set',
 target_size = (64, 64),batch_size = 18,class_mode = 'binary')
 police.fit_generator(training_set,steps_per_epoch = 6, epochs = 2,
 validation_data = test_set, validation_steps = 20)
@@ -35,7 +35,7 @@ validation_data = test_set, validation_steps = 20)
 # Part 3 - MAKING NEW PREDICTIONS
 import numpy as np
 from keras.preprocessing import image
-test_image = image.load_img('datasetX/prediction_result/unza1.jpg', target_size = (64, 64))
+test_image = image.load_img('data/prediction_result/unza1.jpg', target_size = (64, 64))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis = 0)
 result = police.predict(test_image)

@@ -3,11 +3,10 @@ from numpy import loadtxt
 from keras.models import Sequential
 from keras.layers import Dense
 import matplotlib.pyplot as pyplot
-import numpy
 
 # load the dataset
-dataset1 = loadtxt('blindness.csv', delimiter=',')
-dataset2 = loadtxt('deafness.csv', delimiter=',')
+dataset1 = loadtxt('xblindness.csv', delimiter=',')
+dataset2 = loadtxt('xdeafness.csv', delimiter=',')
 
 X = dataset1[:,0:8]
 y = dataset1[:,8]

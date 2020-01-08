@@ -1,2 +1,3 @@
 activate base
+cd P1_SingleLable
 python fraud1.py
