@@ -1,9 +1,9 @@
-# PREDICTION  AND RECOGNITION ALGORITHMS
+# PREDICTION AND RECOGNITION ALGORITHMS
 
 ## PART I: Fraud Detection 
-1. find the intrusion in the smarthouse security
-2. Identify intruder using more than three layers ANN
-3. Plot the value of the linear temperature
+1. ATs for detecting undesired pattern changes in general uses
+2. Memory loss ATs to correctly labelling of family members correctly by facial recognition
+3. ATs to Identify the present of fever in family members for smart house
 
 ## PART II: Many lable identification 
 1. find the intrusion in the smarthouse security
@@ -22,7 +22,7 @@
 
 ## PART V: Blue bank chips
  1. Search Engine connector for Google-API
- 2. Currency Conventer in vanilla JavaScript 
+ 2. Currency Converter in vanilla JavaScript 
 
 ## PART VI: Pricings of sales products
  1. Pricing in Groovy
